@@ -1,50 +1,88 @@
-# Welcome to your Expo app 👋
+# Movie App 🎬
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este é um aplicativo de filmes que mostra os filmes mais populares, permite buscar qualquer filme e exibe detalhes sobre os filmes selecionados.
 
-## Get started
+## Funcionalidades 🚀
 
-1. Install dependencies
+- **Tela Inicial**: Mostra os **Trending Movies**, que são os filmes mais pesquisados pelos usuários, e os **Latest Movies** (últimos filmes disponíveis na API TMDB). Além disso, há um campo de busca para procurar por qualquer filme.
+- **Busca de Filmes**: Uma página dedicada onde é possível buscar filmes por título.
+- **Detalhes do Filme**: Uma página com mais informações sobre o filme selecionado, incluindo resumo, faturamento, data de lançamento e mais.
 
+### Navegação 🧭
+
+- **Página Inicial**: Contém filmes populares, recentes e o campo de busca.
+- **Busca**: Digite o título de um filme e veja os resultados.
+- **Detalhes do Filme**: Explore mais detalhes sobre o filme clicado.
+
+## Instalação 🛠️
+
+Para instalar o app no seu dispositivo, siga os passos abaixo:
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/movie-app.git
+   ```
+2. Navegue até a pasta do projeto:
+   ```bash
+   cd movie-app
+   ```
+3. Instale as dependências:
    ```bash
    npm install
    ```
-
-2. Start the app
-
+4. Inicie o app:
    ```bash
-    npx expo start
+   npm start
+   ```
+   Ou, se estiver usando o Expo:
+   ```bash
+   expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Demonstração 🎥
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Aqui estão algumas imagens para mostrar como o aplicativo se parece:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Tela inicial 📱
 
-## Get a fresh project
+![Tela Inicial](./images/home_screen.jpg)
 
-When you're ready, run:
+### Busca de Filmes 🔎
 
-```bash
-npm run reset-project
-```
+![Busca de Filmes](./images/search_screen.jpg)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Detalhes do Filme 🎦
 
-## Learn more
+![Detalhes do Filme](./images/movie_details_screen.jpg)
 
-To learn more about developing your project with Expo, look at the following resources:
+## Tecnologias Usadas 💻
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- **React Native**: Framework para construir o app.
+- **NativeWind**: Framework para estilizar o app.
+- **Expo**: Plataforma para facilitar o desenvolvimento com React Native.
+- **AppWrite**: Backend para gerenciar dados.
+- **TMDB API**: Para buscar filmes e informações.
 
-## Join the community
+## Contribua 💬
 
-Join our community of developers creating universal apps.
+Sinta-se à vontade para contribuir com melhorias! Você pode:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Reportar bugs
+- Sugerir ou implementar novas funcionalidades (saved ou profile)
+- Melhorar a documentação
+
+### Para Contribuir:
+
+1. Faça um Fork deste repositório.
+2. Crie uma branch para a sua feature (`git checkout -b minha-feature`).
+3. Faça as modificações e commit (`git commit -am 'Adicionando uma nova feature'`).
+4. Envie as modificações para o seu repositório (`git push origin minha-feature`).
+5. Crie um Pull Request.
+
+## Redes Sociais 📲
+
+- [Instagram](https://www.instagram.com/thiagopaulista87/) 📸
+- [LinkedIn](https://www.linkedin.com/in/thiago-alves-dev/) 💼
+- [GitHub](https://github.com/Thiago87dev) 🖥️
+
+Agradeço por usar meu app! 😃
