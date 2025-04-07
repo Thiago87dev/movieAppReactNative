@@ -45,15 +45,15 @@ Aqui estão algumas imagens para mostrar como o aplicativo se parece:
 
 ### Tela inicial 📱
 
-![Tela Inicial](./images/home_screen.jpg)
+<img src="./images/home_screen.jpg" alt="Tela Inicial" width="400" />
 
 ### Busca de Filmes 🔎
 
-![Busca de Filmes](./images/search_screen.jpg)
+<img src="./images/search_screen.jpg" alt="Busca de Filmes" width="400" />
 
 ### Detalhes do Filme 🎦
 
-![Detalhes do Filme](./images/movie_details_screen.jpg)
+<img src="./images/movie_details_screen.jpg" alt="Detalhes do Filme" width="400" />
 
 ## Tecnologias Usadas 💻
 
