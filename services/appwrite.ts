@@ -1,5 +1,11 @@
 import { Client, Databases, ID, Query } from "react-native-appwrite";
 
+interface MovieSummary {
+  id:number
+  poster_path: string
+  title: string
+}
+
 const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!;
 const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID!;
 
@@ -9,10 +15,10 @@ const client = new Client()
 
 const database = new Databases(client);
 
-export const updateSearchCount = async (query: string, movie: Movie) => {
+export const updateSearchCount = async (movieTitle: string, movie: MovieSummary) => {
   try {
     const result = await database.listDocuments(DATABASE_ID, COLLECTION_ID, [
-      Query.equal("searchTerm", query),
+      Query.equal("title", movieTitle),
     ]);
 
     if (result.documents.length > 0) {
@@ -28,7 +34,6 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
       );
     } else {
       await database.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
-        searchTerm: query,
         count: 1,
         poster_url: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         movie_id: movie.id,

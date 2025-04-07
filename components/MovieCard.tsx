@@ -1,4 +1,5 @@
 import { icons } from "@/constants/icons";
+import { updateSearchCount } from "@/services/appwrite";
 import { Link } from "expo-router";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
@@ -9,9 +10,13 @@ const MovieCard = ({
   vote_average,
   release_date,
 }: Movie) => {
+  const handleMoviePress = () => {
+    updateSearchCount(title, { id, poster_path, title });
+  };
+
   return (
     <Link href={`/movies/${id}`} asChild>
-      <TouchableOpacity className="w-[30%]">
+      <TouchableOpacity onPress={handleMoviePress} className="w-[30%]">
         <Image
           source={{
             uri: poster_path
@@ -21,7 +26,9 @@ const MovieCard = ({
           className="w-full h-52 rounded-lg"
           resizeMode="cover"
         />
-        <Text className="text-white text-sm font-bold mt-2" numberOfLines={1}>{title}</Text>
+        <Text className="text-white text-sm font-bold mt-2" numberOfLines={1}>
+          {title}
+        </Text>
         <View className="flex-row items-center justify-start gap-x-1">
           <Image source={icons.star} className="size-4" />
           <Text className="text-white text-xs font-bold uppercase">

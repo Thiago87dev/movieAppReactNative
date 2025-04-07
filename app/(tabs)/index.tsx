@@ -6,30 +6,43 @@ import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
 import { getTrendingMovies } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
-import { useRouter } from "expo-router";
-import {
-  ActivityIndicator,
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import { useFocusEffect, useRouter } from "expo-router";
+import { useCallback, useState } from "react";
+import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
 
 export default function Index() {
   const router = useRouter();
 
+  const [refreshing, setRefreshing] = useState(false);
+
+
+
   const {
     data: trendingMovies,
     loading: trendingLoading,
+    refetch: trendigRefetch,
     error: trendingError,
   } = useFetch(getTrendingMovies);
 
   const {
     data: movies,
     loading: moviesLoading,
+    refetch: movieRefetch,
     error: moviesError,
   } = useFetch(() => fetchMovies({ query: "" }));
+
+  useFocusEffect(
+    useCallback(() => {
+      trendigRefetch();
+    }, [])
+  );
+
+  const onRefresh = async () => {
+    setRefreshing(true)
+    await trendigRefetch()
+    await movieRefetch()
+    setRefreshing(false)
+  }
 
   const renderHeader = () => (
     <View>
@@ -54,6 +67,8 @@ export default function Index() {
               <TrendingCards movie={item} index={index} />
             )}
             keyExtractor={(item) => item.movie_id.toString()}
+            onRefresh={onRefresh}
+            refreshing={refreshing}
           />
         </View>
       )}
@@ -61,40 +76,46 @@ export default function Index() {
         Latest Movies
       </Text>
     </View>
-  )
+  );
 
-  const renderItem = ({item}:{item:Movie}) => <MovieCard {...item}/>
-  const keyExtractor = (item:Movie) => item.id.toString()
+  const renderItem = ({ item }: { item: Movie }) => <MovieCard {...item} />;
+  const keyExtractor = (item: Movie) => item.id.toString();
 
   return (
     <View className="flex-1 bg-primary">
-      <Image source={images.bg} className="absolute w-full z-0" />
-      
-        {moviesLoading || trendingLoading ? (
-          <ActivityIndicator
-            size={"large"}
-            color={"#0000ff"}
-            className="mt-10 self-center"
-          />
-        ) : moviesError || trendingError ? (
-          <Text>Error:{moviesError?.message || trendingError?.message}</Text>
-        ) : (
-              <FlatList<Movie>
-                data={movies}
-                renderItem={renderItem}
-                keyExtractor={keyExtractor}
-                numColumns={3}
-                columnWrapperStyle={{
-                  justifyContent: "flex-start",
-                  gap: 20,
-                  paddingRight: 5,
-                  marginBottom: 10,
-                }}
-                className="mt-2 pb-32"
-                ListHeaderComponent={renderHeader}
-                showsVerticalScrollIndicator={false}
-              />
-        )}
+      <Image
+        source={images.bg}
+        className="flex-1 absolute w-full z-0"
+        resizeMode="cover"
+      />
+
+      {moviesLoading || trendingLoading ? (
+        <ActivityIndicator
+          size={"large"}
+          color={"#0000ff"}
+          className="mt-10 self-center"
+        />
+      ) : moviesError || trendingError ? (
+        <Text>Error:{moviesError?.message || trendingError?.message}</Text>
+      ) : (
+        <FlatList<Movie>
+          data={movies}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          numColumns={3}
+          columnWrapperStyle={{
+            justifyContent: "flex-start",
+            gap: 20,
+            paddingRight: 5,
+            marginBottom: 10,
+          }}
+          className="mt-2 pb-32 px-4"
+          ListHeaderComponent={renderHeader}
+          showsVerticalScrollIndicator={false}
+          onRefresh={onRefresh}
+          refreshing={refreshing}
+        />
+      )}
     </View>
   );
 }
