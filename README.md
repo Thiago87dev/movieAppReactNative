@@ -43,17 +43,28 @@ Para instalar o app no seu dispositivo, siga os passos abaixo:
 
 Aqui estão algumas imagens para mostrar como o aplicativo se parece:
 
-### Tela inicial 📱
+<div style="display: flex; justify-content: space-between; gap: 10px;">
 
-<img src="./images/home_screen.jpg" alt="Tela Inicial" width="400" />
+   <div>
 
-### Busca de Filmes 🔎
+   #### Tela inicial 📱
 
-<img src="./images/search_screen.jpg" alt="Busca de Filmes" width="400" />
+   <img src="./images/home_screen.jpg" alt="Tela Inicial" width="400" />
+   </div>
+   <div>
 
-### Detalhes do Filme 🎦
+   #### Busca de Filmes 🔎
 
-<img src="./images/movie_details_screen.jpg" alt="Detalhes do Filme" width="400" />
+   <img src="./images/search_screen.jpg" alt="Busca de Filmes" width="400" />
+   </div>
+   <div>
+
+   #### Detalhes do Filme 🎦
+
+   <img src="./images/movie_details_screen.jpg" alt="Detalhes do Filme" width="400" />
+   </div>
+</div>
+
 
 ## Tecnologias Usadas 💻
 
