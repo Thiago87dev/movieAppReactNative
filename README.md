@@ -49,19 +49,19 @@ Aqui estão algumas imagens para mostrar como o aplicativo se parece:
 
    #### Tela inicial 📱
 
-   <img src="./images/home_screen.jpg" alt="Tela Inicial" width="400" />
+   <img src="./images/home_screen.jpg" alt="Tela Inicial" width="200" />
    </div>
    <div>
 
    #### Busca de Filmes 🔎
 
-   <img src="./images/search_screen.jpg" alt="Busca de Filmes" width="400" />
+   <img src="./images/search_screen.jpg" alt="Busca de Filmes" width="200" />
    </div>
    <div>
 
    #### Detalhes do Filme 🎦
 
-   <img src="./images/movie_details_screen.jpg" alt="Detalhes do Filme" width="400" />
+   <img src="./images/movie_details_screen.jpg" alt="Detalhes do Filme" width="200" />
    </div>
 </div>
 
