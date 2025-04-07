@@ -74,8 +74,8 @@ Sinta-se à vontade para contribuir com melhorias! Você pode:
 
 ## Redes Sociais 📲
 
-- [Instagram](https://www.instagram.com/thiagopaulista87/) 📸
 - [LinkedIn](https://www.linkedin.com/in/thiago-alves-dev/) 💼
 - [GitHub](https://github.com/Thiago87dev) 🖥️
+- [Instagram](https://www.instagram.com/thiagopaulista87/) 📸
 
 Agradeço por usar meu app! 😃
